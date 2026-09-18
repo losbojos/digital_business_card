@@ -1,16 +1,22 @@
-import { PrismaClient } from "@prisma/client";
-import { readFileSync } from "fs";
+import { PrismaClient } from '@prisma/client';
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
+const dataPath = join(
+  dirname(fileURLToPath(import.meta.url)),
+  '..',
+  'prisma',
+  'data.json',
+);
 
-const prisma = new PrismaClient();
-
-async function main() {
+export async function initData(prisma: PrismaClient) {
   if (await prisma.profile.findFirst()) {
     console.log("init data already exists");
     return;
   }
 
-  const data = JSON.parse(readFileSync('prisma/data.json', 'utf-8'));
+  const data = JSON.parse(readFileSync(dataPath, 'utf8'));
 
   await prisma.profile.create({
     data:
@@ -29,9 +35,3 @@ async function main() {
 
   console.log("init data created");
 }
-
-main().catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(() => prisma.$disconnect());
