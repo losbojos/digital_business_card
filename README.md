@@ -2,6 +2,15 @@
 
 Backend на NestJS: профиль, навыки, опыт, проекты через GraphQL.
 
+## Демо
+
+Откройте в браузере: https://digitalbusinesscard-production.up.railway.app/graphql
+Выполните команду или её подмножество: 
+```bash
+query { profile { name description links {label url} skills { name } experience { company position periodStart periodEnd achievements} projects { name url note } } }
+
+```
+
 ## Запуск локально
 
 ```bash
