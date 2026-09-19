@@ -4,6 +4,7 @@ import { ProfileService } from './profile/profile.service.js';
 import { ProfileResolver } from './profile/profile.resolver.js';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { SeedService } from './seed.service.js';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       autoSchemaFile: true,
     }),
   ],
-  providers: [PrismaService, ProfileService, ProfileResolver],
+  providers: [PrismaService, ProfileService, ProfileResolver, SeedService],
 })
 export class AppModule {}
