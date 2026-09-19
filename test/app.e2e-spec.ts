@@ -28,5 +28,4 @@ describe('GraphQL (e2e)', () => {
   afterEach(async () => {
     await app.close();
   });
-  
 });

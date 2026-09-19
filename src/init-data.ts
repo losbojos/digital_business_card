@@ -12,26 +12,24 @@ const dataPath = join(
 
 export async function initData(prisma: PrismaClient) {
   if (await prisma.profile.findFirst()) {
-    console.log("init data already exists");
+    console.log('init data already exists');
     return;
   }
 
   const data = JSON.parse(readFileSync(dataPath, 'utf8'));
 
   await prisma.profile.create({
-    data:
-    {
+    data: {
       name: data.name,
       description: data.description,
-      links: {create: data.links},
+      links: { create: data.links },
       skills: {
-        create: data.skills.map((skil: string) => ({name: skil}))
+        create: data.skills.map((skill: string) => ({ name: skill })),
       },
-
-      experience: {create: data.experience},
-      projects: {create: data.projects},
-    }
+      experience: { create: data.experience },
+      projects: { create: data.projects },
+    },
   });
 
-  console.log("init data created");
+  console.log('init data created');
 }

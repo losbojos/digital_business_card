@@ -1,5 +1,5 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../prisma.service.js";
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma.service.js';
 
 @Injectable()
 export class ProfileService {
@@ -7,7 +7,7 @@ export class ProfileService {
 
   findOne() {
     return this.prisma.profile.findFirst({
-      include: {  
+      include: {
         links: true,
         skills: true,
         experience: true,

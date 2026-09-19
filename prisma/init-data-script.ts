@@ -4,7 +4,7 @@ import { initData } from '../src/init-data.js';
 const prisma = new PrismaClient();
 
 initData(prisma)
-  .catch((e) => {
+  .catch((e: any) => {
     console.error(e);
     process.exit(1);
   })

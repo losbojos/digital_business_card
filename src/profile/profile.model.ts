@@ -2,7 +2,6 @@ import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class ProfileLink {
-
   @Field(() => Int)
   id: number;
 
@@ -34,10 +33,10 @@ export class Experience {
   position: string;
 
   @Field()
-  periodStart: string
+  periodStart: string;
 
   @Field(() => String, { nullable: true })
-  periodEnd: string
+  periodEnd: string;
 
   @Field(() => [String])
   achievements: string[];
