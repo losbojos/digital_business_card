@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { createHash } from 'crypto';
 
 const dataPath = join(
   dirname(fileURLToPath(import.meta.url)),
@@ -12,17 +13,26 @@ const dataPath = join(
 );
 
 export async function initData(prisma: PrismaClient) {
-  if (await prisma.profile.findFirst()) {
-    console.log('init data already exists');
+
+  const raw = readFileSync(dataPath, 'utf8');
+  const dataHash = createHash('sha256').update(raw).digest('hex');
+
+  const existing = await prisma.profile.findFirst();
+  if (existing?.dataHash === dataHash) {
     return;
   }
 
-  const data = JSON.parse(readFileSync(dataPath, 'utf8'));
+  if (existing) {
+    await prisma.profile.delete({ where: { id: existing.id } });
+  }  
 
+  const data = JSON.parse(raw);  
+  
   await prisma.profile.create({
     data: {
       name: data.name,
       description: data.description,
+      dataHash,
       links: { create: data.links },
       skills: {
         create: data.skills.map((skill: string) => ({ name: skill })),
@@ -32,5 +42,5 @@ export async function initData(prisma: PrismaClient) {
     },
   });
 
-  console.log('init data created');
+  console.log(existing ? 'data updated' : 'init data created');  
 }

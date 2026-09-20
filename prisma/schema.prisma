@@ -11,6 +11,7 @@ model Profile {
   id          Int @id @default(autoincrement())
   name        String
   description String
+  dataHash    String?
   links       ProfileLink[]
   skills      Skill[]
   experience  Experience[]
@@ -46,7 +47,8 @@ model Experience {
 model Project {
   id        Int @id @default(autoincrement())
   name      String
-  url       String
+  demo      String?
+  source    String?
   note      String?
   profileId Int
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)

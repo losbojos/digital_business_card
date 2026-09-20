@@ -2,9 +2,18 @@
   "name": "Евгений Кит",
   "description": "Fullstack-разработчик (TypeScript, React, NestJS/Express). 10 лет опыта: ранее C++/C# (.NET), с 2023 — веб. Веду разработку полного цикла fullstack-продуктов: архитектура, API, UI, деплой.",
   "links": [
-    { "label": "GitHub", "url": "https://github.com/losbojos" },
-    { "label": "Telegram", "url": "https://t.me/ekitdev" },
-    { "label": "Email", "url": "mailto:kitdev@rambler.ru" }
+    {
+      "label": "GitHub",
+      "url": "https://github.com/losbojos"
+    },
+    {
+      "label": "Telegram",
+      "url": "https://t.me/ekitdev"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:kitdev@rambler.ru"
+    }
   ],
   "skills": [
     "TypeScript",
@@ -28,7 +37,7 @@
     "C++",
     "C# / .NET",
     "HTML",
-    "CSS", 
+    "CSS",
     "Sass",
     "CSS Modules",
     "Адаптивная верстка",
@@ -83,31 +92,37 @@
   "projects": [
     {
       "name": "Арбуз Suika (VK Mini Apps)",
-      "url": "https://vk.com/app52210775",
+      "demo": "https://vk.com/app52210775",
       "note": "Fullstack browser game, React + Phaser + Express/MongoDB"
     },
     {
       "name": "Печенька с предсказанием",
-      "url": "https://vk.com/app6878533",
+      "demo": "https://vk.com/app6878533",
       "note": "Frontend, Vanilla JS / TypeScript"
     },
     {
       "name": "Раппорт — живые онлайн игры",
-      "url": "https://rapport.losbojos.workers.dev/",
+      "demo": "https://rapport.losbojos.workers.dev/",
       "note": "NestJS, Prisma, PostgreSQL, Socket.io, React, Jitsi"
     },
     {
       "name": "Articus Sound - сайт кастомных акустических систем",
-      "url": "https://e-borisov-web-portfolio-articus.vercel.app/",
+      "demo": "https://e-borisov-web-portfolio-articus.vercel.app/",
       "note": "Демо"
     },
     {
       "name": "Онлайн платформа обучения",
-      "url": "https://kuzovkin.info/"
+      "demo": "https://kuzovkin.info/"
     },
     {
       "name": "Бизнес Система",
-      "url": "https://bs-rko.ru/"
+      "demo": "https://bs-rko.ru/"
+    },
+    {
+      "name": "Проект Mesto",
+      "demo": null,
+      "source": "https://github.com/losbojos/react-mesto-api-full-gha",
+      "note": "Проектная работа обучения Яндекс.Практикум 2023. Фронтенд React и бэкенд Express + MongoDB."
     }
   ]
 }

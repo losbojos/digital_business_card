@@ -50,8 +50,11 @@ export class Project {
   @Field()
   name: string;
 
-  @Field()
-  url: string;
+  @Field(() => String, { nullable: true })
+  demo: string | null;
+
+  @Field(() => String, { nullable: true })
+  source: string | null;
 
   @Field(() => String, { nullable: true })
   note: string;
