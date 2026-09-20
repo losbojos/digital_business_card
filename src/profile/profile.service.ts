@@ -6,13 +6,22 @@ export class ProfileService {
   constructor(private readonly prisma: PrismaService) {}
 
   findOne() {
-    return this.prisma.profile.findFirst({
-      include: {
-        links: true,
-        skills: true,
-        experience: true,
-        projects: true,
-      },
-    });
+    return this.prisma.profile.findFirst();
+  }
+
+  findLinks(profileId: number) {
+    return this.prisma.profileLink.findMany({ where: { profileId } });
+  }
+
+  findSkills(profileId: number) {
+    return this.prisma.skill.findMany({ where: { profileId } });
+  }
+
+  findExperience(profileId: number) {
+    return this.prisma.experience.findMany({ where: { profileId } });
+  }
+
+  findProjects(profileId: number) {
+    return this.prisma.project.findMany({ where: { profileId } });
   }
 }
