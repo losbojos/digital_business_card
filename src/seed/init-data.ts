@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 const dataPath = join(
   dirname(fileURLToPath(import.meta.url)),
   '..',
+  '..',
   'prisma',
   'data.json',
 );
